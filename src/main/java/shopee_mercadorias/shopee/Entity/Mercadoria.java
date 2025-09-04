@@ -10,7 +10,7 @@ import java.util.UUID;
 
 public class Mercadoria {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO, generator = "UUID")
+    @GeneratedValue(strategy= GenerationType.IDENTITY, generator = "UUID")
     private UUID id;
     private String nome;
     private double preco;

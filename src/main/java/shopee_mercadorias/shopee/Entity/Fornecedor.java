@@ -10,21 +10,25 @@ import java.util.UUID;
 public class Fornecedor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY,generator = "UUID")
     private UUID id;
     private String nome;
-    private String cnpj;
+    private String contato;
+    private String endereco;
 
-    @OneToMany(mappedBy = "fornecedor")
+
+    @OneToMany(mappedBy = "fornecedor_id")
     private List<Mercadoria> mercadorias;
 
     public Fornecedor() {
     }
 
-    public Fornecedor(UUID id, String nome, String cnpj) {
+    public Fornecedor(UUID id, String nome, String contato, String endereco, List<Mercadoria> mercadorias) {
         this.id = id;
         this.nome = nome;
-        this.cnpj = cnpj;
+        this.contato = contato;
+        this.endereco = endereco;
+        this.mercadorias = mercadorias;
     }
 
     public UUID getId() {
@@ -43,11 +47,27 @@ public class Fornecedor {
         this.nome = nome;
     }
 
-    public String getCnpj() {
-        return cnpj;
+    public String getContato() {
+        return contato;
     }
 
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
+    public void setContato(String contato) {
+        this.contato = contato;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public List<Mercadoria> getMercadorias() {
+        return mercadorias;
+    }
+
+    public void setMercadorias(List<Mercadoria> mercadorias) {
+        this.mercadorias = mercadorias;
     }
 }

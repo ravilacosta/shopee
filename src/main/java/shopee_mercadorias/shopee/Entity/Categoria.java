@@ -2,6 +2,7 @@ package shopee_mercadorias.shopee.Entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -9,16 +10,25 @@ import java.util.UUID;
 public class Categoria {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY,generator = "UUID")
     private UUID id;
     private String nome;
+    private String descricao;
+
+    @OneToMany(mappedBy = "categoria_id")
+    private List<Mercadoria> mercadorias;
+
+
+
 
     public Categoria() {
     }
 
-    public Categoria(UUID id, String nome) {
+    public Categoria(UUID id, String nome, String descricao, List<Mercadoria> mercadorias) {
         this.id = id;
         this.nome = nome;
+        this.descricao = descricao;
+        this.mercadorias = mercadorias;
     }
 
     public UUID getId() {
@@ -35,5 +45,21 @@ public class Categoria {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public List<Mercadoria> getMercadorias() {
+        return mercadorias;
+    }
+
+    public void setMercadorias(List<Mercadoria> mercadorias) {
+        this.mercadorias = mercadorias;
     }
 }
