@@ -30,7 +30,6 @@ public class CategoriaService {
     public CategoriaCreateDTO findById(UUID id) {
         //retorna uma entidade categoria
         Categoria categoria = categoriaRepository.findById(id).orElseThrow();
-        // metodo para converter uma categoria entity em categoria create dto
         return converToDTO(categoria);
 
     }
