@@ -4,27 +4,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import shopee_mercadorias.shopee.DTO.CategoriaCreateDTO;
 import shopee_mercadorias.shopee.Entity.Categoria;
+import shopee_mercadorias.shopee.Service.CategoriaService;
 
 import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/v1/categoria")
+@RequestMapping("/api/categoria")
 public class CategoriaController {
     @Autowired
-    CategoriaService service;
+   private CategoriaService service;
 
     //pegar uma categoria pelo seu id
     @GetMapping("/{id}")
-    public Categoria findById(@PathVariable UUID id) {
-        return service.findById(UUID);
+    public CategoriaCreateDTO findById(@PathVariable UUID id) {
+        return service.findById(id);
     }
-    // pegar todos as categorias
+
+    // listar todas as categorias
     @GetMapping
-    List<CategoriaCreateDTO> findAll() {
-        return  service.findAll();
+   public List<CategoriaCreateDTO> findAll() { return  service.findAll();
     }
-    //salavar uma categoria
+
+    //salvar ou criar uma categoria
     @PostMapping
     public CategoriaCreateDTO save (@RequestBody CategoriaCreateDTO categoriaCreateDTO) {
         return  service.save(categoriaCreateDTO);
@@ -34,11 +36,11 @@ public class CategoriaController {
     @PutMapping ("/{id}")
     public CategoriaCreateDTO update(@PathVariable UUID id,
                                      @RequestBody CategoriaCreateDTO categoriaCreateDTO) {
-        return  service.update(UUID, categoriaCreateDTO);
+        return  service.update(id, categoriaCreateDTO);
     }
     //deletar uma categoria pelo id
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable UUID id) {
-        service.delete(UUID);
+    public void deleteById(@PathVariable UUID id) {
+        service.deleteById(id);
     }
 }

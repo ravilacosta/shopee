@@ -2,16 +2,17 @@ package shopee_mercadorias.shopee.DTO;
 
 public class FornecedorCreateDTO {
 
-
     private String nome;
-    private String cnpj;
+    private String contato;
+    private String endereco;
 
     public FornecedorCreateDTO() {
     }
 
-    public FornecedorCreateDTO(String nome, String cnpj) {
+    public FornecedorCreateDTO(String nome, String contato, String endereco) {
         this.nome = nome;
-        this.cnpj = cnpj;
+        this.contato = contato;
+        this.endereco = endereco;
     }
 
     public String getNome() {
@@ -22,11 +23,19 @@ public class FornecedorCreateDTO {
         this.nome = nome;
     }
 
-    public String getCnpj() {
-        return cnpj;
+    public String getContato() {
+        return contato;
     }
 
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
+    public void setContato(String contato) {
+        this.contato = contato;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 }

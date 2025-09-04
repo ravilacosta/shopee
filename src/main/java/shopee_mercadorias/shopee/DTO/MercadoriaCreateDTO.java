@@ -7,18 +7,18 @@ public class MercadoriaCreateDTO {
     private String nome;
     private double preco;
     private int quantidade;
-    private String categoria;
+
 
     public MercadoriaCreateDTO() {
     }
 
     public MercadoriaCreateDTO(String nome, double preco,
-                               int quantidade,
-                               String categoria) {
+                               int quantidade)
+                               {
         this.nome = nome;
         this.preco = preco;
         this.quantidade = quantidade;
-        this.categoria = categoria;
+
     }
 
     public String getNome() {
@@ -45,11 +45,5 @@ public class MercadoriaCreateDTO {
         this.quantidade = quantidade;
     }
 
-    public String getCategoria() {
-        return categoria;
-    }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
 }

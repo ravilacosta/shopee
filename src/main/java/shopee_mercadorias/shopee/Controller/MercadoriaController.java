@@ -18,13 +18,15 @@ public class MercadoriaController {
     //pegar uma mercadoria pelo seu id
     @GetMapping("/{id}")
     public MercadoriaCreateDTO findById(@PathVariable("id") UUID id) {
-        return service.findById(UUID);
+        return service.findById(id);
     }
+
     //pegar todas as mercadorias
     @GetMapping
     public List<MercadoriaCreateDTO> findAll() {
         return service.findAll();
     }
+
     //salvar uma mercadoria
     @PostMapping
     public MercadoriaCreateDTO save (@RequestBody MercadoriaCreateDTO mercadoriaCreateDTO){
@@ -35,13 +37,13 @@ public class MercadoriaController {
     @PutMapping("/{id}")
     public MercadoriaCreateDTO update (@PathVariable("id") UUID id,
                                        @RequestBody MercadoriaCreateDTO mercadoriaCreateDTO){
-        return  service.update(UUID, mercadoriaCreateDTO);
+        return  service.update(id, mercadoriaCreateDTO);
     }
 
 //deletar uma mercadoria pelo id
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable("id") UUID id){
-        service.delete(id);
+    public void deleteBYId(@PathVariable("id") UUID id){
+        service.deleteById(id);
     }
 
 

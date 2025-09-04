@@ -10,12 +10,12 @@ import java.util.UUID;
 public class Categoria {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY,generator = "UUID")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "UUID")
     private UUID id;
     private String nome;
     private String descricao;
 
-    @OneToMany(mappedBy = "categoria_id")
+    @OneToMany(mappedBy = "categoria")
     private List<Mercadoria> mercadorias;
 
 

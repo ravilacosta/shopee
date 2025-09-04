@@ -10,14 +10,14 @@ import java.util.UUID;
 public class Fornecedor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY,generator = "UUID")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "UUID")
     private UUID id;
     private String nome;
     private String contato;
     private String endereco;
 
 
-    @OneToMany(mappedBy = "fornecedor_id")
+    @OneToMany(mappedBy = "fornecedor")
     private List<Mercadoria> mercadorias;
 
     public Fornecedor() {
